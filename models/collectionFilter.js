@@ -28,21 +28,7 @@ export default class CollectionFilter
                 this.objects.sort((a, b) => desc !== "desc" ? this.innerCompare(a[sortField], b[sortField]) : this.innerCompare(b[sortField], a[sortField]));
             }
         }
-        if (this.query.field != undefined && this.model.fields.findIndex(field => field.name === this.query.field) !== -1)
-        {
-            const field = this.query.field;
-            const set = new Set();
-            this.objects.forEach(object => set.add(object[field]));
-            const newObjects = [];
-            set.forEach(entry => 
-            {
-                const o = {};
-                o[field] = entry;
-                newObjects.push(o);
-            });
-            this.objects = newObjects;
-        }
-        else if (this.query.fields !== undefined)
+        if (this.query.fields !== undefined)
         {
             const displayedFields = this.query.fields.split(",");
             this.objects = this.objects.map(object => 
