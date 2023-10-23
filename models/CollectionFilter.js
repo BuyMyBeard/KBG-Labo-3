@@ -35,7 +35,12 @@ export default class CollectionFilter
             const set = new Set();
             this.objects.forEach(object => set.add(object[field]));
             const newObjects = [];
-            set.forEach(entry => newObjects.push({Category : entry}));
+            set.forEach(entry => 
+            {
+                const o = {};
+                o[field] = entry;
+                newObjects.push(o);
+            });
             this.objects = newObjects;
         }
         else if (this.query.fields !== undefined)
