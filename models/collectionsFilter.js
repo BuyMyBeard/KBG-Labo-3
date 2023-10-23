@@ -5,7 +5,6 @@ export default class CollectionFilter
         this.objects = objects;
         this.query = query;
         this.model = model;
-        console.log(query);
     }
     get()
     {
@@ -51,7 +50,12 @@ export default class CollectionFilter
                 const newObject = {};
                 displayedFields.forEach(field => newObject[field] = object[field]);
                 return newObject;
-            })
+            });
+            const set = new Set();
+            this.objects.forEach(object => set.add(JSON.stringify(object)));
+            const newObjects = [];
+            set.forEach(item => newObjects.push(JSON.parse(item)));
+            this.objects = newObjects;
         }
         const offset = Number(this.query.offset);
         const limit = Number(this.query.limit);
@@ -81,5 +85,15 @@ export default class CollectionFilter
         return x.localeCompare(y);
         else
         return this.compareNum(x, y);
+    }
+    equal(ox, oy) {
+        let equal = true;
+        Object.keys(ox).forEach(function (member) {
+            if (ox[member] != oy[member]) {
+                equal = false;
+                return false;
+            }
+        })
+        return equal;
     }
 }
