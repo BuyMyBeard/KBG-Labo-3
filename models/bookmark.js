@@ -1,4 +1,4 @@
-import Model from './Model.js';
+import Model from './model.js';
 
 export default class Bookmark extends Model {
     constructor() {

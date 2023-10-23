@@ -2,7 +2,7 @@ import fs from "fs";
 import { v1 as uuidv1 } from "uuid";
 import * as utilities from "../utilities.js";
 import { log } from "../log.js";
-import RepositoryCachesManager from "./RepositoryCachesManager.js";
+import RepositoryCachesManager from "./repositoryCachesManager.js";
 import CollectionFilter from './CollectionFilter.js';
 
 global.jsonFilesPath = "jsonFiles";
