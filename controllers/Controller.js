@@ -2,6 +2,7 @@ export default class Controller {
     constructor(HttpContext, repository = null) {
         this.HttpContext = HttpContext;
         this.repository = repository;
+        console.log(this.repository)
     }
     head() {
         if (this.repository != null) {
