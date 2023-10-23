@@ -1,6 +1,6 @@
 //http://rali.iro.umontreal.ca/rali/?q=fr/DEM-json
 
-import Model from './model.js';
+import Model from './Model.js';
 
 export default class Word extends Model {
     constructor() {
