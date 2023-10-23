@@ -4,7 +4,7 @@ import {log} from "../log.js";
 let repositoryCachesExpirationTime = serverVariables.get("main.repository.CacheExpirationTime");
 
 // Repository file data models cache
-globalThis.repositoryCaches = [];
+global.repositoryCaches = [];
 
 export default class RepositoryCachesManager {
     static add(model, data) {
